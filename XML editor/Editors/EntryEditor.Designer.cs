@@ -107,6 +107,7 @@
             this.typeBox.Size = new System.Drawing.Size(121, 21);
             this.typeBox.TabIndex = 5;
             this.typeBox.Visible = false;
+            this.typeBox.SelectedIndexChanged += new System.EventHandler(this.typeBox_SelectedIndexChanged);
             // 
             // typeLabel
             // 

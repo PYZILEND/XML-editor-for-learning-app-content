@@ -154,5 +154,10 @@ namespace XMLEditor.Editors
             editor.RefreshGrid();
             Dispose();
         }
+
+        private void typeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayControls();
+        }
     }
 }
