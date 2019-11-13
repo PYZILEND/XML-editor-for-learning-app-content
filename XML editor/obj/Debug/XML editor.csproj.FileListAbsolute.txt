@@ -1,0 +1,12 @@
+C:\Test\C#\XML editor\bin\Debug\XML Editor.exe.config
+C:\Test\C#\XML editor\bin\Debug\XML Editor.exe
+C:\Test\C#\XML editor\bin\Debug\XML Editor.pdb
+C:\Test\C#\XML editor\obj\Debug\XML editor.csprojAssemblyReference.cache
+C:\Test\C#\XML editor\obj\Debug\XMLEditor.Editor.resources
+C:\Test\C#\XML editor\obj\Debug\XMLEditor.Editors.EntryEditor.resources
+C:\Test\C#\XML editor\obj\Debug\XMLEditor.SectionEditor.resources
+C:\Test\C#\XML editor\obj\Debug\XMLEditor.TopicEditor.resources
+C:\Test\C#\XML editor\obj\Debug\XMLEditor.Properties.Resources.resources
+C:\Test\C#\XML editor\obj\Debug\XML editor.csproj.GenerateResource.cache
+C:\Test\C#\XML editor\obj\Debug\XML Editor.exe
+C:\Test\C#\XML editor\obj\Debug\XML Editor.pdb
