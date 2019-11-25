@@ -20,12 +20,18 @@ namespace XMLEditor.Content
         /// Section's id
         /// </summary>
         int id;
+        /// <summary>
+        /// Marks item as initially open
+        /// </summary>
+        bool isOpen;
 
-        public Section(int id, string title)
+
+        public Section(int id, string title, bool isOpen)
         {
             topics = new List<Topic>();
             this.id = id;
             this.title = title;
+            this.isOpen = isOpen;
         }
 
         /// <summary>
@@ -60,9 +66,9 @@ namespace XMLEditor.Content
         /// </summary>
         /// <param name="id"></param>
         /// <param name="title"></param>
-        public void AddTopic(int id, string title)
+        public void AddTopic(int id, string title, bool isOpen)
         {
-            topics.Add(new Topic(id, title));
+            topics.Add(new Topic(id, title, isOpen));
         }
 
         /// <summary>
@@ -117,6 +123,16 @@ namespace XMLEditor.Content
                 }
             }
             return null;
+        }
+
+        public bool IsOpen()
+        {
+            return isOpen;
+        }
+
+        public void SetOpen(bool value)
+        {
+            isOpen = value;
         }
     }
 }

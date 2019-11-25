@@ -11,12 +11,13 @@ namespace XMLEditor.Content
         List<Entry> entries;
         int id;
         string title;
-
-        public Topic(int id, string title)
+        bool isOpen;
+        public Topic(int id, string title, bool isOpen)
         {
             entries = new List<Entry>();
             this.id = id;
             this.title = title;
+            this.isOpen = isOpen;
         }
 
         public int GetId()
@@ -51,14 +52,14 @@ namespace XMLEditor.Content
             return null;
         }
 
-        public void AddTheory(int id, string text)
+        public void AddTheory(int id, string text, bool isOpen)
         {
-            entries.Add( new Theory(id, text) );
+            entries.Add( new Theory(id, text, isOpen) );
         }
 
-        public void AddChallenge(int id, string text, Challenge.Type type, List<string> answers)
+        public void AddChallenge(int id, string text, bool isOpen, Challenge.Type type, List<string> answers)
         {
-            entries.Add(new Challenge(id, text, type, answers));
+            entries.Add(new Challenge(id, text, isOpen, type, answers));
         }
 
         public void AddEntry(Entry entry)
@@ -69,6 +70,16 @@ namespace XMLEditor.Content
         public void RemoveEntry(Entry entry)
         {
             entries.Remove(entry);
+        }
+
+        public bool IsOpen()
+        {
+            return isOpen;
+        }
+
+        public void SetOpen(bool value)
+        {
+            isOpen = value;
         }
     }
 }

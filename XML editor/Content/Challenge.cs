@@ -13,10 +13,11 @@ namespace XMLEditor.Content
         private Type challengeType;
         private List<string> answers;
 
-        public Challenge(int id, string text, Type type, List<string> answers)
+        public Challenge(int id, string text, bool isOpen, Type type, List<string> answers)
         {
             this.id = id;
             this.text = text;
+            this.isOpen = isOpen;
             this.challengeType = type;
             this.answers = answers;
         }

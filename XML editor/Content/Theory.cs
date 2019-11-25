@@ -8,10 +8,11 @@ namespace XMLEditor.Content
 {
     public class Theory : Entry
     {
-        public Theory(int id, string text)
+        public Theory(int id, string text, bool isOpen)
         {
             this.id = id;
             this.text = text;
+            this.isOpen = isOpen;
         }
     }
 }

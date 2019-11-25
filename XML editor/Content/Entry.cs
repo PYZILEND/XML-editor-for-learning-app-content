@@ -9,7 +9,8 @@ namespace XMLEditor.Content
     public abstract class Entry
     {
         protected string text;
-        protected int id;       
+        protected int id;
+        protected bool isOpen;
 
         public int GetId()
         {
@@ -24,6 +25,16 @@ namespace XMLEditor.Content
         public void SetText(string text)
         {
             this.text = text;
+        }
+
+        public bool IsOpen()
+        {
+            return isOpen;
+        }
+
+        public void SetOpen(bool value)
+        {
+            isOpen = value;
         }
     }
 }

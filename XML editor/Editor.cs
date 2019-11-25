@@ -274,6 +274,7 @@ namespace XMLEditor
                 dataGrid.Rows.Add();
                 dataGrid.Rows[i].Cells[0].Value = section.GetId();
                 dataGrid.Rows[i].Cells[1].Value = section.GetTitle();
+                dataGrid.Rows[i].Cells[2].Value = section.IsOpen();
                 i++;
             }
         }
@@ -289,6 +290,7 @@ namespace XMLEditor
                 dataGrid.Rows.Add();
                 dataGrid.Rows[i].Cells[0].Value = topic.GetId();
                 dataGrid.Rows[i].Cells[1].Value = topic.GetTitle();
+                dataGrid.Rows[i].Cells[2].Value = topic.IsOpen();
                 i++;
             }
         }
@@ -314,6 +316,7 @@ namespace XMLEditor
                 }
                 
                 dataGrid.Rows[i].Cells[2].Value = entry.GetText();
+                dataGrid.Rows[i].Cells[3].Value = entry.IsOpen();
                 i++;
             }
         }
@@ -325,7 +328,8 @@ namespace XMLEditor
         {
             dataGrid.Columns.Clear();
             dataGrid.Columns.Add("id", "ID");
-            dataGrid.Columns.Add("title", "Название");            
+            dataGrid.Columns.Add("title", "Название");
+            dataGrid.Columns.Add("isOpen", "Открыта изначально");
         }
 
         /// <summary>
@@ -336,6 +340,7 @@ namespace XMLEditor
             dataGrid.Columns.Clear();
             dataGrid.Columns.Add("id", "ID");
             dataGrid.Columns.Add("title", "Название");
+            dataGrid.Columns.Add("isOpen", "Открыта изначально");
         }
 
         /// <summary>
@@ -347,6 +352,7 @@ namespace XMLEditor
             dataGrid.Columns.Add("id", "ID");
             dataGrid.Columns.Add("type", "Тип");
             dataGrid.Columns.Add("text", "Текст");
+            dataGrid.Columns.Add("isOpen", "Открыта изначально");
         }
 
         /// <summary>

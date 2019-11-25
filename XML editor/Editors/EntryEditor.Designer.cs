@@ -40,6 +40,7 @@
             this.textLabel = new System.Windows.Forms.Label();
             this.topicBox = new System.Windows.Forms.ComboBox();
             this.topicLabel = new System.Windows.Forms.Label();
+            this.isOpenCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // theoryButton
@@ -165,11 +166,22 @@
             this.topicLabel.TabIndex = 13;
             this.topicLabel.Text = "Тема";
             // 
+            // isOpenCheckbox
+            // 
+            this.isOpenCheckbox.AutoSize = true;
+            this.isOpenCheckbox.Location = new System.Drawing.Point(114, 13);
+            this.isOpenCheckbox.Name = "isOpenCheckbox";
+            this.isOpenCheckbox.Size = new System.Drawing.Size(132, 17);
+            this.isOpenCheckbox.TabIndex = 14;
+            this.isOpenCheckbox.Text = "Открыта изначально";
+            this.isOpenCheckbox.UseVisualStyleBackColor = true;
+            // 
             // EntryEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 564);
+            this.Controls.Add(this.isOpenCheckbox);
             this.Controls.Add(this.topicLabel);
             this.Controls.Add(this.topicBox);
             this.Controls.Add(this.textLabel);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.Label textLabel;
         private System.Windows.Forms.ComboBox topicBox;
         private System.Windows.Forms.Label topicLabel;
+        private System.Windows.Forms.CheckBox isOpenCheckbox;
     }
 }

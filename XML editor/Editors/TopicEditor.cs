@@ -58,6 +58,7 @@ namespace XMLEditor
             this.section = section;
 
             titleBox.Text = topic.GetTitle();
+            isOpenCheckbox.Checked = topic.IsOpen();
 
             int i = 0;
             foreach (Content.Section item in editor.content.GetSections())
@@ -92,6 +93,7 @@ namespace XMLEditor
             if (topic != null)
             {
                 topic.SetTitle(titleBox.Text);
+                topic.SetOpen(isOpenCheckbox.Checked);
                 if (sectionBox.SelectedIndex != sectionIndex)
                 {
                     editor.content.TransferTopic(topic, section, editor.content.GetSections()[sectionBox.SelectedIndex]);
@@ -99,7 +101,7 @@ namespace XMLEditor
             }
             else
             {
-                editor.content.AddTopic(section, titleBox.Text);                
+                editor.content.AddTopic(section, titleBox.Text, isOpenCheckbox.Checked);                
             }
             editor.RefreshGrid();
             Dispose();

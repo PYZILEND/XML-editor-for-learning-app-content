@@ -32,6 +32,7 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.titleBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.isOpenCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // applyButton
@@ -70,11 +71,22 @@
             this.titleLabel.TabIndex = 3;
             this.titleLabel.Text = "Название раздела";
             // 
+            // isOpenCheckbox
+            // 
+            this.isOpenCheckbox.AutoSize = true;
+            this.isOpenCheckbox.Location = new System.Drawing.Point(35, 85);
+            this.isOpenCheckbox.Name = "isOpenCheckbox";
+            this.isOpenCheckbox.Size = new System.Drawing.Size(126, 17);
+            this.isOpenCheckbox.TabIndex = 4;
+            this.isOpenCheckbox.Text = "Открыт изначально";
+            this.isOpenCheckbox.UseVisualStyleBackColor = true;
+            // 
             // SectionEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(253, 183);
+            this.Controls.Add(this.isOpenCheckbox);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.titleBox);
             this.Controls.Add(this.cancelButton);
@@ -92,5 +104,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox titleBox;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.CheckBox isOpenCheckbox;
     }
 }

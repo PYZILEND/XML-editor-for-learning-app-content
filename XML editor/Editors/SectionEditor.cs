@@ -43,6 +43,7 @@ namespace XMLEditor
             this.section = section;
 
             titleBox.Text = section.GetTitle();
+            isOpenCheckbox.Checked = section.IsOpen();
         }
         
                
@@ -66,10 +67,11 @@ namespace XMLEditor
             if (section != null)
             {
                 section.SetTitle(titleBox.Text);
+                section.SetOpen(isOpenCheckbox.Checked);
             }
             else
             {
-                editor.content.AddSection(titleBox.Text);                
+                editor.content.AddSection(titleBox.Text, isOpenCheckbox.Checked);                
             }
             editor.RefreshGrid();
             Dispose();

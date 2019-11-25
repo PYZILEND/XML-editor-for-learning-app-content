@@ -26,15 +26,27 @@ namespace XMLEditor
             {
                 int _sectionId = int.Parse(section.Element("id").Value);
                 string _sectionTitle = section.Element("title").Value;
+                bool _sectionIsOpen = false;
 
-                Content.Section _section = new Content.Section(_sectionId, _sectionTitle);
+                if (section.Element("isOpen") != null)
+                {
+                    _sectionIsOpen = bool.Parse(section.Element("isOpen").Value);
+                }
+
+                Content.Section _section = new Content.Section(_sectionId, _sectionTitle, _sectionIsOpen);
 
                 foreach(XElement topic in section.Elements("topic"))
                 {
                     int _topicId = int.Parse(topic.Element("id").Value);
                     string _topicTitle = topic.Element("title").Value;
+                    bool _topicIsOpen = false;
 
-                    Content.Topic _topic = new Content.Topic(_topicId, _topicTitle);
+                    if(topic.Element("isOpen") != null)
+                    {
+                        _topicIsOpen = bool.Parse(topic.Element("isOpen").Value);
+                    }
+
+                    Content.Topic _topic = new Content.Topic(_topicId, _topicTitle, _topicIsOpen);
 
                     foreach (XElement entry in topic.Elements())
                     {
@@ -42,10 +54,16 @@ namespace XMLEditor
                         {
                             int _entryId = int.Parse(entry.Element("id").Value);
                             string _entryText = entry.Element("text").Value;
+                            bool _entryIsOpen = false;
+
+                            if (entry.Element("isOpen") != null)
+                            {
+                                _entryIsOpen = bool.Parse(entry.Element("isOpen").Value);
+                            }
 
                             if(entry.Name == "theory")
                             {
-                                Content.Theory _theory = new Content.Theory(_entryId, _entryText);
+                                Content.Theory _theory = new Content.Theory(_entryId, _entryText, _entryIsOpen);
 
                                 _topic.AddEntry(_theory);
                             }
@@ -61,7 +79,7 @@ namespace XMLEditor
                                     _answers.Add(answer.Value);
                                 }
 
-                                Content.Challenge _challenge = new Content.Challenge(_entryId, _entryText, _challengeType, _answers);
+                                Content.Challenge _challenge = new Content.Challenge(_entryId, _entryText, _entryIsOpen, _challengeType, _answers);
 
                                 _topic.AddEntry(_challenge);
                             }
@@ -96,6 +114,8 @@ namespace XMLEditor
                 section.Add(sectionId);
                 XElement sectionTitle = new XElement("title", _section.GetTitle());
                 section.Add(sectionTitle);
+                XElement sectionIsOpen = new XElement("isOpen", _section.IsOpen());
+                section.Add(sectionIsOpen);
 
                 foreach(Content.Topic _topic in _section.GetTopics())
                 {
@@ -105,12 +125,14 @@ namespace XMLEditor
                     topic.Add(topicId);
                     XElement topicTitle = new XElement("title", _topic.GetTitle());
                     topic.Add(topicTitle);
+                    XElement topicIsOpen = new XElement("isOpen", _topic.IsOpen());
+                    topic.Add(topicTitle);
 
                     foreach(Content.Entry _entry in _topic.GetEntries())
                     {
                         XElement id = new XElement("id", _entry.GetId().ToString());                        
-                        XElement text = new XElement("text", _entry.GetText());                        
-
+                        XElement text = new XElement("text", _entry.GetText());
+                        XElement isOpen = new XElement("isOpen", _entry.IsOpen());
 
                         if (_entry is Content.Theory)
                         {
@@ -118,6 +140,7 @@ namespace XMLEditor
 
                             theory.Add(id);
                             theory.Add(text);
+                            theory.Add(isOpen);
 
                             topic.Add(theory);
                         }
@@ -136,6 +159,7 @@ namespace XMLEditor
 
                             challenge.Add(id);
                             challenge.Add(text);
+                            challenge.Add(isOpen);
                             challenge.Add(type);
                             challenge.Add(answers);
 

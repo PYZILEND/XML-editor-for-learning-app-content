@@ -34,6 +34,7 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.sectionBox = new System.Windows.Forms.ComboBox();
             this.sectionLabel = new System.Windows.Forms.Label();
+            this.isOpenCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // applyButton
@@ -90,11 +91,22 @@
             this.sectionLabel.TabIndex = 5;
             this.sectionLabel.Text = "Раздел";
             // 
+            // isOpenCheckbox
+            // 
+            this.isOpenCheckbox.AutoSize = true;
+            this.isOpenCheckbox.Location = new System.Drawing.Point(39, 89);
+            this.isOpenCheckbox.Name = "isOpenCheckbox";
+            this.isOpenCheckbox.Size = new System.Drawing.Size(132, 17);
+            this.isOpenCheckbox.TabIndex = 6;
+            this.isOpenCheckbox.Text = "Открыта изначально";
+            this.isOpenCheckbox.UseVisualStyleBackColor = true;
+            // 
             // TopicEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 210);
+            this.Controls.Add(this.isOpenCheckbox);
             this.Controls.Add(this.sectionLabel);
             this.Controls.Add(this.sectionBox);
             this.Controls.Add(this.titleLabel);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ComboBox sectionBox;
         private System.Windows.Forms.Label sectionLabel;
+        private System.Windows.Forms.CheckBox isOpenCheckbox;
     }
 }

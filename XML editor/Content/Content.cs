@@ -34,9 +34,9 @@ namespace XMLEditor.Content
         /// Adds new section to content
         /// </summary>
         /// <param name="title"></param>
-        public void AddSection(string title)
+        public void AddSection(string title, bool isOpen)
         {
-            sections.Add(new Section(idCount, title));
+            sections.Add(new Section(idCount, title, isOpen));
             idCount++;
         }
 
@@ -64,15 +64,15 @@ namespace XMLEditor.Content
         /// </summary>
         /// <param name="sectionId"></param>
         /// <param name="title"></param>
-        public void AddTopic(int sectionId, string title)
+        public void AddTopic(int sectionId, string title, bool isOpen)
         {
-            GetSectionById(sectionId).AddTopic(idCount, title);
+            GetSectionById(sectionId).AddTopic(idCount, title, isOpen);
             idCount++;
         }
 
-        public void AddTopic(Section section, string title)
+        public void AddTopic(Section section, string title, bool isOpen)
         {
-            section.AddTopic(idCount, title);
+            section.AddTopic(idCount, title, isOpen);
             idCount++;
         }
 
@@ -115,15 +115,15 @@ namespace XMLEditor.Content
             source.RemoveTopic(topic);
         }
 
-        public void AddTheory(Topic topic, string text)
+        public void AddTheory(Topic topic, string text, bool isOpen)
         {
-            topic.AddTheory(idCount, text);
+            topic.AddTheory(idCount, text, isOpen);
             idCount++;
         }
 
-        public void AddChallenge(Topic topic, string text, Challenge.Type type, List<string> answers)
+        public void AddChallenge(Topic topic, string text, bool isOpen, Challenge.Type type, List<string> answers)
         {
-            topic.AddChallenge(idCount, text, type, answers);
+            topic.AddChallenge(idCount, text, isOpen, type, answers);
             idCount++;
         }
 

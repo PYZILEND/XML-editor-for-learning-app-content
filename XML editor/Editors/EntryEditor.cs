@@ -36,6 +36,7 @@ namespace XMLEditor.Editors
             this.entry = entry;
 
             textBox.Text = entry.GetText();
+            isOpenCheckbox.Checked = entry.IsOpen();
 
             if(entry is Content.Challenge)
             {
@@ -129,6 +130,7 @@ namespace XMLEditor.Editors
             if(entry != null)
             {
                 entry.SetText(textBox.Text);
+                entry.SetOpen(isOpenCheckbox.Checked);
                 if (practiceButton.Checked == true)
                 {
                     (entry as Content.Challenge).SetChallengeType((Content.Challenge.Type)typeBox.SelectedIndex);
@@ -143,12 +145,12 @@ namespace XMLEditor.Editors
             {
                 if(theoryButton.Checked == true)
                 {
-                    editor.content.AddTheory(topic, textBox.Text);
+                    editor.content.AddTheory(topic, textBox.Text, isOpenCheckbox.Checked);
                 }
                 else
                 {
                     List<string> answers = new List<string>(answersBox.Text.Split('\n'));
-                    editor.content.AddChallenge(topic, textBox.Text, (Content.Challenge.Type)typeBox.SelectedIndex, answers);
+                    editor.content.AddChallenge(topic, textBox.Text, isOpenCheckbox.Checked, (Content.Challenge.Type)typeBox.SelectedIndex, answers);
                 }
             }
             editor.RefreshGrid();
