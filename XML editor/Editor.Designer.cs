@@ -46,6 +46,8 @@
             this.topicLabel = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.moveUpButton = new System.Windows.Forms.Button();
+            this.moveDownButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(856, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(866, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,35 +77,35 @@
             // createMenuItem
             // 
             this.createMenuItem.Name = "createMenuItem";
-            this.createMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createMenuItem.Size = new System.Drawing.Size(163, 22);
             this.createMenuItem.Text = "Создать";
             this.createMenuItem.Click += new System.EventHandler(this.createMenuItem_Click);
             // 
             // openMenuItem
             // 
             this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(163, 22);
             this.openMenuItem.Text = "Открыть";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
             // 
             // saveMenuItem
             // 
             this.saveMenuItem.Name = "saveMenuItem";
-            this.saveMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveMenuItem.Size = new System.Drawing.Size(163, 22);
             this.saveMenuItem.Text = "Сохранить";
             this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
             // 
             // saveAsMenuItem
             // 
             this.saveAsMenuItem.Name = "saveAsMenuItem";
-            this.saveAsMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsMenuItem.Size = new System.Drawing.Size(163, 22);
             this.saveAsMenuItem.Text = "Сохранить как...";
             this.saveAsMenuItem.Click += new System.EventHandler(this.saveAsMenuItem_Click);
             // 
             // closeMenuItem
             // 
             this.closeMenuItem.Name = "closeMenuItem";
-            this.closeMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeMenuItem.Size = new System.Drawing.Size(163, 22);
             this.closeMenuItem.Text = "Закрыть";
             this.closeMenuItem.Click += new System.EventHandler(this.closeMenuItem_Click);
             // 
@@ -216,11 +218,33 @@
             this.openFileDialog.DefaultExt = "xml";
             this.openFileDialog.Filter = "XML file|*.xml";
             // 
+            // moveUpButton
+            // 
+            this.moveUpButton.Location = new System.Drawing.Point(716, 179);
+            this.moveUpButton.Name = "moveUpButton";
+            this.moveUpButton.Size = new System.Drawing.Size(128, 23);
+            this.moveUpButton.TabIndex = 9;
+            this.moveUpButton.Text = "Переместить выше";
+            this.moveUpButton.UseVisualStyleBackColor = true;
+            this.moveUpButton.Click += new System.EventHandler(this.moveUpButton_Click);
+            // 
+            // moveDownButton
+            // 
+            this.moveDownButton.Location = new System.Drawing.Point(716, 208);
+            this.moveDownButton.Name = "moveDownButton";
+            this.moveDownButton.Size = new System.Drawing.Size(128, 23);
+            this.moveDownButton.TabIndex = 10;
+            this.moveDownButton.Text = "Переместить ниже";
+            this.moveDownButton.UseVisualStyleBackColor = true;
+            this.moveDownButton.Click += new System.EventHandler(this.moveDownButton_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 450);
+            this.ClientSize = new System.Drawing.Size(866, 450);
+            this.Controls.Add(this.moveDownButton);
+            this.Controls.Add(this.moveUpButton);
             this.Controls.Add(this.topicLabel);
             this.Controls.Add(this.sectionLabel);
             this.Controls.Add(this.upButton);
@@ -261,6 +285,8 @@
         private System.Windows.Forms.Label topicLabel;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button moveUpButton;
+        private System.Windows.Forms.Button moveDownButton;
     }
 }
 

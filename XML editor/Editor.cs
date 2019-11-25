@@ -385,6 +385,40 @@ namespace XMLEditor
                     currentEntry = currentTopic.GetEntryById((int)dataGrid.CurrentRow.Cells[0].Value);
                 }
             }
-        }    
+        }
+
+        private void moveUpButton_Click(object sender, EventArgs e)
+        {
+            if (currentLevel == Level.section)
+            {
+                content.MoveSection(true, currentSection);
+            }
+            else if (currentLevel == Level.topic)
+            {
+                content.MoveTopic(true, currentTopic, currentSection);
+            }
+            else
+            {
+                content.MoveEntry(true, currentEntry, currentTopic);
+            }
+            RefreshGrid();
+        }
+
+        private void moveDownButton_Click(object sender, EventArgs e)
+        {
+            if (currentLevel == Level.section)
+            {
+                content.MoveSection(false, currentSection);
+            }
+            else if (currentLevel == Level.topic)
+            {
+                content.MoveTopic(false, currentTopic, currentSection);
+            }
+            else
+            {
+                content.MoveEntry(false, currentEntry, currentTopic);
+            }
+            RefreshGrid();
+        }
     }
 }

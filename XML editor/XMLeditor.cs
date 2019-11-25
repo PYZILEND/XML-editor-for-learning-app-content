@@ -126,7 +126,7 @@ namespace XMLEditor
                     XElement topicTitle = new XElement("title", _topic.GetTitle());
                     topic.Add(topicTitle);
                     XElement topicIsOpen = new XElement("isOpen", _topic.IsOpen());
-                    topic.Add(topicTitle);
+                    topic.Add(topicIsOpen);
 
                     foreach(Content.Entry _entry in _topic.GetEntries())
                     {

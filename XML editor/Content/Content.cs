@@ -174,5 +174,76 @@ namespace XMLEditor.Content
         {
             return idCount;
         }
+
+        public void MoveSection(bool upwards, Section section)
+        {
+            int sectionIndex = sections.IndexOf(section);
+            if (upwards)
+            {
+                sectionIndex--;
+                if(sectionIndex < 0)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                sectionIndex++;
+                if(sectionIndex >= sections.Count)
+                {
+                    return;
+                }
+            }
+            sections.Remove(section);
+            sections.Insert(sectionIndex, section);
+        }                
+
+        public void MoveTopic(bool upwards, Topic topic, Section section)
+        {
+            List<Topic> topics = section.GetTopics();
+            int topicIndex = topics.IndexOf(topic);
+            if (upwards)
+            {
+                topicIndex--;
+                if (topicIndex < 0)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                topicIndex++;
+                if (topicIndex >= topics.Count)
+                {
+                    return;
+                }
+            }
+            topics.Remove(topic);
+            topics.Insert(topicIndex, topic);
+        }
+
+        public void MoveEntry(bool upwards, Entry entry, Topic topic)
+        {
+            List<Entry> entries = topic.GetEntries();
+            int entryIndex = entries.IndexOf(entry);
+            if (upwards)
+            {
+                entryIndex--;
+                if (entryIndex < 0)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                entryIndex++;
+                if (entryIndex >= entries.Count)
+                {
+                    return;
+                }
+            }
+            entries.Remove(entry);
+            entries.Insert(entryIndex, entry);
+        }
     }
 }
