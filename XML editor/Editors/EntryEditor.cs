@@ -115,6 +115,11 @@ namespace XMLEditor.Editors
                             answersLabel.Text = "Строки (в правильном порядке)";
                             break;
                         }
+                    case 4:
+                        {
+                            answersLabel.Text = "Варианты, сначала правильные в правильном порядке, потом лишние (если есть), пропуск обозначать как %blank%";
+                            break;
+                        }
                     default: break;
                 }
             }

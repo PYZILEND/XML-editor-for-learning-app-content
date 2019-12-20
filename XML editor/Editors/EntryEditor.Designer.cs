@@ -101,8 +101,9 @@
             this.typeBox.Items.AddRange(new object[] {
             "Вопрос",
             "Вопрос с вариантами",
-            "Вставить пропуски",
-            "Восстановить порядок"});
+            "Заполнить пропуски",
+            "Восстановить порядок",
+            "Вставить пропуски"});
             this.typeBox.Location = new System.Drawing.Point(528, 285);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(121, 21);

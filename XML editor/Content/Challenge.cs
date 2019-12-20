@@ -8,7 +8,7 @@ namespace XMLEditor.Content
 {
     public class Challenge : Entry
     {
-        public enum Type { question, options, gaps, order};
+        public enum Type { question, options, gaps, order, blanks};
 
         private Type challengeType;
         private List<string> answers;
